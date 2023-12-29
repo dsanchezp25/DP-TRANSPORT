@@ -128,4 +128,6 @@ public class Location{
     public int hashCode(){
         return (y << 16) + x;
     }
+
+
 }

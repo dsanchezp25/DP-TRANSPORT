@@ -126,17 +126,17 @@ public class DemoOnePassanger
         System.out.println("Taxis " + t1.getName() + " at " +
             t1.getLocation().toString());
 
-        /*
-        //TODO ordenar y mostrar los pasajero/as
-        //para ordenar una colección aplicando un comparador, esta sería
-        //la sintaxis (suponiendo que "passengers" es una colección donde
-        //la compañía de taxis almacena los pasajero/as):
-        //Collections.sort(passenger, new ComparadorNombrePassenger());
-        //Como es un unico passenger, podemos guardar la informacion en una variable tipo passenger
-         */
-        Passenger passenger = company.getPassengers().get(0);
-
         System.out.println("-->> Passengers requesting taxi <<--");
+/*
+        TODO ordenar y mostrar los pasajero/as
+        *para ordenar una colección aplicando un comparador, esta sería
+        *la sintaxis (suponiendo que "passengers" es una colección donde
+        *la compañía de taxis almacena los pasajero/as):
+        *Collections.sort(passenger, new ComparadorNombrePassenger());
+        *Como es un unico passenger, podemos guardar la informacion en una variable tipo passenger
+
+*/
+        Passenger passenger = company.getPassengers().get(0);
         System.out.println("Passenger " + passenger.getName() +
             " travelling from " + passenger.getRecogida().toString() +
             " to " + passenger.getDestination().toString());
@@ -146,22 +146,6 @@ public class DemoOnePassanger
         System.out.println("-->> Simulation start <<--");
         System.out.println("-->> ---------------- <<--");
         System.out.println("");
-        // Location l1;
-        // Location l2 = passenger.getDestination();
-        // Location destino = passenger.getDestination();
-        // while(!t1.getLocation().equals(destino)){
-        // l1 = t1.getLocation();
-        // System.out.println("@@@  Taxi: " + t1.getName() + " moving to: " + l1.nextLocation(l2));
-        // t1.setLocation(l1.nextLocation(l2));
-        // step();
-        // if(t1.getLocation().equals(passenger.getRecogida()))
-        // System.out.println("<<<< Taxi " + t1.getName()+ " at "
-        // + passenger.getRecogida() + " picks up" + passenger.getName());
-
-        // }
-        // System.out.println(">>>Taxi " + t1.getName() + "at " + t1.getLocation() + " offloads Passenger " +
-        // passenger.getName() + " trabelling from " + passenger.getRecogida() +
-        // " to " + passenger.getDestination());
     }
 
     /**
@@ -179,8 +163,8 @@ public class DemoOnePassanger
         //TODO ordenar y mostrar los taxis
         Taxi taxi = actors.get(0);
         System.out.println("Taxi " + taxi.getName() + " at " +
-            taxi.getLocation() + "- passenger transported: " +
-            taxi.getNumPassengers() + " - non active for : " + taxi.getIdleCount());
+            taxi.getLocation() + " - passenger transported: " +
+            taxi.getNumPassengers() + " - non active for : " + taxi.getIdleCount() + " times");
 
         System.out.println("-->> Passengers final information <<--");
         //TODO ordenar y mostrar los pasajero/as
