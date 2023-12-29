@@ -13,7 +13,7 @@ import java.util.List;
 public class TransportCompany  
 {
     private String name;  //nombre de la compañía
-    private ArrayList <Taxi> vehiculo;
+    private ArrayList <Taxi> vehiculos;
     private ArrayList <Passenger> pasajeros;
     private ArrayList <Assigment> asignaciones; //Es una estructura que tiene dentro un tipo taxi y un tipo passenger, y hay que crear una clase para poder hacerloa
 
@@ -23,7 +23,7 @@ public class TransportCompany
     public TransportCompany(String name)
     {
         this.name = name;
-        this.vehiculo = new ArrayList <Taxi> ();
+        this.vehiculos = new ArrayList <Taxi> ();
         this.pasajeros = new ArrayList <Passenger> ();
         this.asignaciones = new ArrayList <Assigment> ();
     }
@@ -34,7 +34,7 @@ public class TransportCompany
     public TransportCompany(String name, ArrayList <Taxi> vehiculo,  ArrayList <Passenger> pasajeros, ArrayList <Assigment> asignaciones)
     {
         this.name = name;
-        this.vehiculo = vehiculo;
+        this.vehiculos = vehiculo;
         this.pasajeros = pasajeros;
         this.asignaciones = asignaciones;
     }
@@ -63,7 +63,7 @@ public class TransportCompany
      */
     public List<Taxi> getVehicles()
     {       
-        return this.vehiculo;
+        return this.vehiculos;
     }
 
     /**
@@ -87,7 +87,7 @@ public class TransportCompany
      */
     public void addVehicle(Taxi vehicle)
     {
-        this.vehiculo.add(vehicle);
+        this.vehiculos.add(vehicle);
     }
 
     /**
@@ -115,12 +115,12 @@ public class TransportCompany
      */
     private Taxi scheduleVehicle(Location location)
     {
-        Collections.sort(vehiculo, new ComparadorDistancia(location));
+        Collections.sort(vehiculos, new ComparadorDistancia(location));
         boolean exit = false;  
         int i = 0;
-        while(i < vehiculo.size()){
-            if(vehiculo.get(i).isFree())
-                return vehiculo.get(i);
+        while(i < vehiculos.size()){
+            if(vehiculos.get(i).isFree())
+                return vehiculos.get(i);
             else
                 i++;   
         }
@@ -173,6 +173,5 @@ public class TransportCompany
             p.setNombreTaxi(taxi.getName());
             System.out.println("<<<< "+taxi+" picks up "+taxi.getPassenger().getName());
         }
-
     }
 }

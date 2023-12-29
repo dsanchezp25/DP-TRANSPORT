@@ -118,12 +118,17 @@ public class DemoInicial
      */
     private void runSimulation() {
         List<Passenger> passengers = company.getPassengers();
+
         for(Passenger passenger : passengers) {
             if(!company.requestPickup(passenger)) {
-                throw new IllegalStateException("Failed to find a pickup for: "+ passenger.getName());        
-            }
-        }
+                throw new IllegalStateException("Failed to find a pickup for: "+ passenger.getName());
 
+            }
+            System.out.println("<<<< Taxi " + passenger.getNombreTaxi() +  " at "
+                    +  " go to pick up passenger " + passenger.getName()
+                    + " at location " + passenger.getRecogida());
+
+        }
     }
 
     /**
@@ -153,12 +158,20 @@ public class DemoInicial
 
         //muestra la informacion inicial de los pasajeros
         System.out.println("-->> Passengers requesting taxi <<--");
+        company.getPassengers().sort(new Comparator<Passenger>(){
+            @Override
+            public int compare(Passenger p1, Passenger p2) {
+                return p1.getName().compareTo(p2.getName());
+            }
+        });
+
         //      TODO ordenar y mostrar los pasajero/as
         for(Passenger passenger : company.getPassengers()){
             System.out.println("Passenger " + passenger.getName() + " traveling from location " +
             passenger.getRecogida().toString() + " to location " + passenger.getDestination());
         }
 
+        System.out.println("");
         System.out.println("-->> ---------------- <<--");
         System.out.println("-->> Simulation start <<--");
         System.out.println("-->> ---------------- <<--");

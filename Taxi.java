@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Model the common elements of taxis and shuttles.
  * 
@@ -269,7 +271,7 @@ public class Taxi {
                 else{ //Ya que si tiene pasajero el destino al que ha llegado el taxi es el destino del pasajero
                     notifyPassengerArrival(getPassenger());
                     offloadPassenger();
-                    //incrementPassengersTransported();
+//                    incrementPassengersTransported();
                 }
             }else{
                  System.out.println("@@@  Taxi: " + getName() + " moving to: " + location);

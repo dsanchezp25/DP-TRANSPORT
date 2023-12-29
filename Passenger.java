@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Model a passenger wishing to get from one
  * location to another.
@@ -38,9 +40,9 @@ public class Passenger
         this.pickup = pickup;
         this.destination = destination;
         this.name = name;
-        taxiName="Sin taxi";
-        this.creditCard = creditCard;
-        this.reliable = reliable;
+        this.taxiName="Sin taxi";
+//        this.creditCard = creditCard;
+//        this.reliable = reliable;
     }
 
     /**
@@ -85,6 +87,7 @@ public class Passenger
     public void setNombreTaxi(String nameTaxi){
         this.taxiName = nameTaxi;
     }
+
 
     //Metodo que devuelve el nombre del taxi asignado al pasajero
     public String getNombreTaxi(){
@@ -147,8 +150,7 @@ public class Passenger
 
     //metodo para comparar si dos pasajeros son el mismo
     public boolean equals(Object other){
-        if(other instanceof Passenger) {
-            Passenger otherPassenger = (Passenger) other;
+        if(other instanceof Passenger otherPassenger) {
             return this.name.equals(otherPassenger.getName());
         }
         else return false;
