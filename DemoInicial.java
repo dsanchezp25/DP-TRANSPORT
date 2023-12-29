@@ -88,29 +88,28 @@ public class DemoInicial
      * Taxis are created and added to the company
      */
     private void createTaxis() {
-        //Taxi taxi1 = new TaxiExclusive(company, new Location(3, 3),"T2", FuelConsumption.MEDIUM, 7000);
-        //Taxi taxi2 = new TaxiShuttle(company, new Location(10,10),"T1", FuelConsumption.LOW, 2);
-        //Taxi taxi3 = new TaxiExclusive(company, new Location(15, 15),"T3", FuelConsumption.HIGH, 9000);
-        /*company.addVehicle(taxi1);
+        Taxi taxi1 = new Taxi(company, new Location(10, 10),"T1");
+        Taxi taxi2 = new Taxi(company, new Location(3,3),"T2");
+        Taxi taxi3 = new Taxi(company, new Location(12, 14),"T3");
+        company.addVehicle(taxi1);
         company.addVehicle(taxi2);
         company.addVehicle(taxi3);
-        actors.addAll(company.getVehicles());*/
+        actors.addAll(company.getVehicles());
     }
 
     /**
      * Passengers are created and added to the company
      */
     private void createPassengers() {
-        /*Passenger passenger1 = new PassengerVip(new Location(0, 0),
-                new Location(2, 6),"Lucy", 30, 30000, Reliable.HIGH);
-        Passenger passenger2 = new PassengerNoVip(new Location(6, 6),
-                new Location(5,2),"Gru", 20, 3000, Reliable.LOW);
-        Passenger passenger3 = new PassengerNoVip(new Location(10, 4),
-                new Location(14,2),"Kevin", 20, 2000, Reliable.LOW);
+        Passenger passenger1 = new Passenger(new Location(0, 0),
+                new Location(2, 6),"Lucy");
+        Passenger passenger2 = new Passenger(new Location(6, 6),
+                new Location(5,2),"Gru");
+
 
         company.addPassenger(passenger1);
         company.addPassenger(passenger2);
-        company.addPassenger(passenger3);*/
+
     }
 
     /**
@@ -137,32 +136,39 @@ public class DemoInicial
         //Collections.sort(passengers, new ComparadorNombrePassenger());
         System.out.println("--->> Simulation of the company: " + company.getName()+" <<---");
         System.out.println("-->> Taxis of the company <<--");
-        //      TODO ordenar y mostrar los taxis
-        Collections.sort(actors, new Comparator<Taxi>() {
-                @Override
-                public int compare(Taxi taxi1, Taxi taxi2){
-                    return taxi1.getName().compareTo(taxi2.getName());
-                }
-            });
-        int i = 0;
-        while(i < actors.size()) {
-            actors.get(i).showFinalInfo();
-            i++;
-        } 
-        //muestra la informacion inicial de taxis ordenados 
 
+        // ordena y mostrar los taxis
+        actors.sort(new Comparator<Taxi>() {
+            @Override
+            public int compare(Taxi taxi1, Taxi taxi2) {
+                return taxi1.getName().compareTo(taxi2.getName());
+            }
+        });
+
+        //muestra la informacion inicial de taxis ordenados
+        for (Taxi taxi: company.getVehicles()){
+            System.out.println("Taxi " + taxi.getName() + " at location " + taxi.getLocation().toString());
+        }
+
+
+        //muestra la informacion inicial de los pasajeros
         System.out.println("-->> Passengers requesting taxi <<--");
         //      TODO ordenar y mostrar los pasajero/as
-        for(i=0;i<company.getPassengers().size();i++){
-            System.out.println(company.getPassengers().get(i).showFinalInfo());
+        for(Passenger passenger : company.getPassengers()){
+            System.out.println("Passenger " + passenger.getName() + " traveling from location " +
+            passenger.getRecogida().toString() + " to location " + passenger.getDestination());
         }
 
         System.out.println("-->> ---------------- <<--");
-        //      mostrar los pasajeros que requieran taxi
         System.out.println("-->> Simulation start <<--");
         System.out.println("-->> ---------------- <<--");
-        System.out.println("");        
+        System.out.println("");
 
+//        int i = 0;
+//        while(i < actors.size()) {
+//            actors.get(i).showFinalInfo();
+//            i++;
+//        }
     }
 
     /**
