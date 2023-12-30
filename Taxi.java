@@ -119,9 +119,7 @@ public class Taxi {
      * target location.
      * @param location The pickup location.
      */
-    public void setPickupLocation(Location location){
-        setTargetLocation(location);
-    }
+    public void setPickupLocation(Location location){setTargetLocation(location);}
 
     /**
      * Has the vehicle a target Location?
@@ -134,9 +132,7 @@ public class Taxi {
     /**
      * Clear the target location.
      */
-    public void clearTargetLocation(){
-        targetLocation = null;
-    }
+    public void clearTargetLocation(){targetLocation = null;}
 
     /**
      * @return on how many steps this vehicle has been idle.
@@ -153,14 +149,14 @@ public class Taxi {
     }
 
     /**
-     * @return set free on a taxi .
+     * set free on a taxi .
      */
     public void setFreeTaxi(){
         freeTaxi = true;
     }
 
     /**
-     * @return not free on a taxi .
+     * set taxi as not free
      */
     public void setNotFreeTaxi(){
         freeTaxi = false;
@@ -246,9 +242,7 @@ public class Taxi {
      * Get the distance to the target location from the current location.
      * @return distance to target location.
      */
-    public int distanceToTheTargetLocation(){               
-        return location.distance(targetLocation);
-    }
+    public int distanceToTheTargetLocation(){return location.distance(targetLocation);}
     
     public int distToLoc(Location loc){               
         return location.distance(loc);

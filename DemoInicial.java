@@ -135,15 +135,15 @@ public class DemoInicial
      * Initial info is showed with the information about taxis and passengers
      */
     private void showInicialInfo() {
-        //para ordenar una colección aplicando un comparador, esta sería 
+       //para ordenar una colección aplicando un comparador, esta sería
         //la sintaxis (suponiendo que "passengers" es una colección donde
         //la compañía de taxis almacena los pasajero/as):
-        //Collections.sort(passengers, new ComparadorNombrePassenger());
+//        Collections.sort(passengers, new ComparadorNombrePassenger());
         System.out.println("--->> Simulation of the company: " + company.getName()+" <<---");
         System.out.println("-->> Taxis of the company <<--");
 
         // ordena y mostrar los taxis
-        actors.sort(new Comparator<Taxi>() {
+        actors.sort(new Comparator<>() {
             @Override
             public int compare(Taxi taxi1, Taxi taxi2) {
                 return taxi1.getName().compareTo(taxi2.getName());
@@ -158,30 +158,31 @@ public class DemoInicial
 
         //muestra la informacion inicial de los pasajeros
         System.out.println("-->> Passengers requesting taxi <<--");
-        company.getPassengers().sort(new Comparator<Passenger>(){
+        company.getPassengers().sort(new Comparator<>(){
             @Override
             public int compare(Passenger p1, Passenger p2) {
                 return p1.getName().compareTo(p2.getName());
             }
         });
 
-        //      TODO ordenar y mostrar los pasajero/as
+        // ordenar y mostrar los pasajero/as
         for(Passenger passenger : company.getPassengers()){
             System.out.println("Passenger " + passenger.getName() + " traveling from location " +
             passenger.getRecogida().toString() + " to location " + passenger.getDestination());
         }
 
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("-->> ---------------- <<--");
         System.out.println("-->> Simulation start <<--");
         System.out.println("-->> ---------------- <<--");
-        System.out.println("");
+        System.out.println(" ");
 
 //        int i = 0;
 //        while(i < actors.size()) {
 //            actors.get(i).showFinalInfo();
 //            i++;
 //        }
+
     }
 
     /**
@@ -189,15 +190,15 @@ public class DemoInicial
      */
     private void showFinalInfo() {
 
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("-->> ----------------- <<--");
         System.out.println("-->> End of simulation <<--");        
         System.out.println("-->> ----------------- <<--");
-        System.out.println("");
+        System.out.println(" ");
 
         System.out.println("-->> Taxis final information <<--");
-        //TODO ordenar y mostrar los taxis
-        Collections.sort(actors, new ComparadorTaxi());
+        //ordenar y mostrar los taxis
+        actors.sort(new ComparadorTaxi());
             for(Taxi t:actors){
                 t.showFinalInfo();
             }

@@ -94,43 +94,25 @@ public class Passenger
         return taxiName;
     }
     
-    public int getArrivalTime()
-    {
-        return arrivalTime;
-    }
+    public int getArrivalTime() {return arrivalTime;}
     
-    public void setArrivalTime(int arrivalTim){
-        this.arrivalTime = arrivalTim;
-    }
+    public void setArrivalTime(int arrivalTim){this.arrivalTime = arrivalTim;}
     
-    public int creditCard()
-    {
-        return creditCard;
-    }
+    public int creditCard() {return creditCard;}
     
-    public void setCreditCard(int creditCa){
-        this.creditCard = creditCa;
-    }
+    public void setCreditCard(int creditCa){this.creditCard = creditCa;}
     
-    public double getValorReliable(){
-        return reliable.getValor();
-    }
+    public double getValorReliable(){return reliable.getValor();}
     
-    public String getNombreReliable(){
-        return reliable.getNombre();
-    }
+    public String getNombreReliable(){return reliable.getNombre();}
     
     public Reliable getReliable(){
         return reliable;
     }
     
-    public void setReliable(Reliable reliable){
-        this.reliable = reliable;
-    }
+    public void setReliable(Reliable reliable){this.reliable = reliable;}
     
-    public String toStringReliable(){
-        return getClass().getName() + getName()+">" + getReliable();
-    }
+    public String toStringReliable(){return getClass().getName() + getName()+">" + getReliable();}
 
     //Metodo que te da la informacion final de un pasajero
     //(nombre,destino y taxi usado)
@@ -144,9 +126,7 @@ public class Passenger
     }
     
     //compara si dos pasajeros son el mismo(se llaman igual)
-    public boolean equals(Passenger p){
-        return this.name.equals(p.getName());
-    }
+    public boolean equals(Passenger p){return this.name.equals(p.getName());}
 
     //metodo para comparar si dos pasajeros son el mismo
     public boolean equals(Object other){

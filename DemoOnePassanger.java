@@ -153,11 +153,11 @@ public class DemoOnePassanger
      */
     private void showFinalInfo() {
 
-        System.out.println("");
+        System.out.println(" ");
         System.out.println("-->> ----------------- <<--");
         System.out.println("-->> End of simulation <<--");
         System.out.println("-->> ----------------- <<--");
-        System.out.println("");
+        System.out.println(" ");
 
         System.out.println("-->> Taxis final information <<--");
         //TODO ordenar y mostrar los taxis
